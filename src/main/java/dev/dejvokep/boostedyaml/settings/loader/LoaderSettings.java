@@ -357,6 +357,25 @@ public class LoaderSettings implements Settings {
         }
 
         /**
+         * Sets the buffer size in bytes for passed input streams. Alternatively, make sure that the passed streams are
+         * already buffered, when this setting rarely has any impact.
+         * <p>
+         * For additional information, please refer to documentation of the parent method listed below.
+         * <p>
+         * <b>Default: </b> defined by the parent method<br>
+         * <b>Parent method: </b> {@link LoadSettingsBuilder#setBufferSize(Integer)}<br>
+         * <b>Parent method docs (v2.9): </b><a href="https://javadoc.io/static/org.snakeyaml/snakeyaml-engine/2.9/org/snakeyaml/engine/v2/api/LoadSettingsBuilder.html#setBufferSize(Integer)">click</a><br>
+         * <b>Related YAML spec (v1.2.2): </b>-
+         *
+         * @param size the buffer size in bytes
+         * @return the builder
+         */
+        public Builder setBufferSize(int size) {
+            builder.setBufferSize(size);
+            return this;
+        }
+
+        /**
          * Builds the settings.
          *
          * @return the settings
