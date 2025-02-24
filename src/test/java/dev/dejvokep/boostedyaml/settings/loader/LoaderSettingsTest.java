@@ -50,6 +50,8 @@ class LoaderSettingsTest {
                 return new LinkedList<>();
             }
         }).build()).getDefaultList().apply(1) instanceof LinkedList);
+        assertEquals(1234, LoaderSettings.builder().setCodePointLimit(1234).build().buildEngineSettings(GeneralSettings.DEFAULT).getCodePointLimit());
+        assertEquals(128, LoaderSettings.builder().setBufferSize(128).build().buildEngineSettings(GeneralSettings.DEFAULT).getBufferSize());
     }
 
 }
