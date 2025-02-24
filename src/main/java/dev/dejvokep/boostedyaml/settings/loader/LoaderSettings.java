@@ -336,6 +336,27 @@ public class LoaderSettings implements Settings {
         }
 
         /**
+         * Sets the limit on the code point length of the incoming document. Please note that this is <b>not</b> the
+         * actual size of the document in bytes - that depends on the used encoding. Should a document exceed the limit,
+         * an {@link org.snakeyaml.engine.v2.exceptions.YamlEngineException} will be thrown while loading the document.
+         * <p>
+         * For additional information, please refer to documentation of the parent method listed below.
+         * <p>
+         * <b>Default: </b> defined by the parent method<br>
+         * <b>Parent method: </b> {@link LoadSettingsBuilder#setCodePointLimit(int)}<br>
+         * <b>Parent method docs (v2.9): </b><a href="https://javadoc.io/static/org.snakeyaml/snakeyaml-engine/2.9/org/snakeyaml/engine/v2/api/LoadSettingsBuilder.html#setCodePointLimit(int)">click</a><br>
+         * <b>Related YAML spec (v1.2.2): </b>-
+         *
+         * @param limit the code point limit
+         * @return the builder
+         * @see LoadSettingsBuilder#setCodePointLimit(int)
+         */
+        public Builder setCodePointLimit(int limit) {
+            builder.setCodePointLimit(limit);
+            return this;
+        }
+
+        /**
          * Builds the settings.
          *
          * @return the settings
