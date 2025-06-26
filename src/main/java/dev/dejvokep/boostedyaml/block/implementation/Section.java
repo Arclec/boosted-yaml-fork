@@ -585,6 +585,21 @@ public class Section extends Block<Map<Object, Block<?>>> {
         return keys;
     }
 
+    @NotNull
+    public Set<Object> getKeys(boolean defaults) {
+        Set<Object> keys = root.getGeneralSettings().getDefaultSet(getStoredValue().size());
+        if(defaults) {
+            //Add defaults
+            if (canUseDefaults())
+                keys.addAll(this.defaults.getKeys());
+        }
+
+        //Add all
+        keys.addAll(getStoredValue().keySet());
+        //Return
+        return keys;
+    }
+
     //
     //
     //      -----------------------
